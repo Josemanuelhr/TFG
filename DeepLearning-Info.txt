@@ -1,0 +1,26 @@
+### DNN ###
+# Hyperparams
+    # n_hidden_layers
+        # entre 1 y 3
+    # neurons_per_layer
+        # hidden_layer = el mismo para todas
+        # input_layer = n_features
+        # output_layer = tipo_salida
+    # Pero, cuantas en concreto para n_hidden_layers y hidden_layer_neurons?  
+    # Respuesta: it’s often simpler and more efficient to pick a model with more layers and neurons than you actually need, 
+    #            then use early stopping and other regularization techniques to prevent it from overfitting. 
+    # batch_size:
+        # opcion 1: entre 2 y 32
+        # opcion 2: valores muy grandes de hasta 8192 si previamente se hace 'learning rate warmup' y vemos que va bien
+    # activation_funciton:
+        # hidden_layer = relu
+        # output_layer = depende de la tarea (TODO, ver cual)
+    # optimizer (de mejor a peor en fiabilidad/tiempo)
+        # *Nesterov Accelerated Gradient: keras.optimizers.SGD(lr=0.001,momentum=0.9,nesterov=True)
+        # Adam: keras.optimizers.Adam(lr=0.001,beta_1=0.9,beta_2=0.999)
+        # RMSProp: keras.optimizers.RMSprop(lr=0.001,rho=0.9)
+    # learning_rate
+        # *exponential decay (sencillo y va bien con Nesterov, p435)
+        # performance scheduling
+        # 1cycle
+# Celdas LSTM y RMU p615 en adelante
